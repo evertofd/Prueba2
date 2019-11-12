@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <% @tasks_not_complete.each_slice(4) do |row| %>
+    <% row.each do |task| %>
+    <div class="col">
+      <div class="card">
+        <%= image_tag task.url, class: 'card-img-top'%>
+        <div class="body">
+          <h5><%= task.name %></h5>
+            <%= link_to "No lista", task_completeds_path(task.id), class:'btn btn-warning', method: :post %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <div class="w-100" style="margin-top:20px"></div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <% @tasks_complete.each_slice(4) do |row| %>
+    <% row.each do |task| %>
+    <div class="col">
+      <div class="card">
+        <%= image_tag task.url, class: 'card-img-top'%>
+        <div class="body">
+          <h5><%= task.name %></h5>
+            <%= link_to "Lista", task_completeds_path(task.id), class:'btn btn-success', method: :post %>
+            <%= link_to "Detalle", details_detail_path(), class:'btn btn-warning' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <div class="w-100" style="margin-top:20px"></div>
+    <% end %>
+  </div>
+</div>

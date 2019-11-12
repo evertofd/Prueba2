@@ -1,0 +1,29 @@
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <a class="navbar-brand" href="#">Bucket List del 18°</a>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+       <% if user_signed_in? %>
+       <li class="nav-item active"><a href="">Bienvenido </a></li>
+       <li class="nav-item active"><a class="nav-link" href="<%= tasks_path %>">Inicio<span class="sr-only">(current)</span></a></li>
+       <li class="nav-item active"><a href="<%= destroy_user_session_path %>" data-method="DELETE">Salir</a></li>
+       <li class="nav-item active"><a class="nav-link"><%= current_user.email %><span class="sr-only">(current)</span></a></li>
+       <li class="nav-item active"><a class="nav-link">  <%= Taskcompleted.where(user_id: current_user.id, completed: true).count %> | 9<span class="sr-only">(current)</span></a></li>
+
+       <% else %>
+       <li class="nav-item active">
+         <a class="nav-link" href="<%= tasks_path %>">Inicio<span class="sr-only">(current)</span></a>
+       </li>
+     <li class="nav-item">
+         <a class="nav-link" href="<%= new_user_session_path %>" >Ingreso</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="<%= new_user_registration_path %>">Registro</a>
+     </li>
+     <% end %>
+     </ul>
+
+   </div>
+ </nav>
