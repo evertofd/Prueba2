@@ -25,7 +25,7 @@
         <div class="body">
           <h5><%= task.name %></h5>
             <%= link_to "Lista", task_completeds_path(task.id), class:'btn btn-success', method: :post %>
-            <%= link_to "Detalle", details_detail_path(), class:'btn btn-warning' %>
+            <%= link_to "Detalle", task_path(task), class:'btn btn-warning' %>
         </div>
       </div>
     </div>

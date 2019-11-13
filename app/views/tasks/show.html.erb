@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+
+
+      <div class="card">
+        <%= image_tag @task.url, class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @task.name %></h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Top 5 en terminar actividad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @five_first.each do |u| %>
+          <tr class="row">
+            <td><%= User.find(u).email %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

@@ -2,7 +2,6 @@ class CompletedsController < ApplicationController
   before_action :authenticate_user!
 
   def create()
-    Rails.logger.debug("My object: #{params[:task_id]}")
     @task_id = params[:task_id]
 
     @task = Task.find(@task_id)
