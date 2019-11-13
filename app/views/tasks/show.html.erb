@@ -19,14 +19,32 @@
           </tr>
         </thead>
         <tbody>
-          <% @five_first.each do |u| %>
+          <% @five_first.each do |user| %>
           <tr class="row">
-            <td><%= User.find(u).email %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+            <td><%= User.find(user).photo ? image_tag(User.find(user).photo, :class => "img-fluid") : image_tag("https://image.flaticon.com/icons/png/512/97/97895.png", :class => "img-fluid")%></td>
+            <td><%= User.find(user).email %>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Esta tarea fue completada por</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%  @users_task_completed.each do |task_com| %>
+            <tr>
+              <td><%=  task_com.user.email %></td>
+              <td><%=  task_com.user.name %></td>
+            </tr>
+            <%  end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</div>

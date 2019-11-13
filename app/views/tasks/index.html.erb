@@ -7,7 +7,9 @@
         <%= image_tag task.url, class: 'card-img-top'%>
         <div class="body">
           <h5><%= task.name %></h5>
-            <%= link_to "No lista", task_completeds_path(task.id), class:'btn btn-warning', method: :post %>
+          <% if user_signed_in? %>
+          <%= link_to "No lista", task_completeds_path(task.id), class:'btn btn-warning', method: :post %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -24,11 +26,15 @@
         <%= image_tag task.url, class: 'card-img-top'%>
         <div class="body">
           <h5><%= task.name %></h5>
-            <%= link_to "Lista", task_completeds_path(task.id), class:'btn btn-success', method: :post %>
-            <%= link_to "Detalle", task_path(task), class:'btn btn-warning' %>
+          <% if user_signed_in? %>
+          <%= link_to "Lista", task_completeds_path(task.id), class:'btn btn-success', method: :post %>
+          <%= link_to "Detalle", task_path(task), class:'btn btn-warning' %>
+          <% end %>
         </div>
+
       </div>
     </div>
+
     <% end %>
     <div class="w-100" style="margin-top:20px"></div>
     <% end %>

@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    @users_task_completed = Taskcompleted.all.where(:task_id => params[:id])
+    @users_task_completed = Taskcompleted.where(:task_id => params[:id])
     @five_first = Taskcompleted.all.where(task_id: @task).order(:created_at).limit(5).pluck('user_id')
   end
 
