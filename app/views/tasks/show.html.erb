@@ -22,7 +22,11 @@
           <% @five_first.each do |user| %>
           <tr class="row">
             <td><%= User.find(user).photo ? image_tag(User.find(user).photo, :class => "img-fluid") : image_tag("https://image.flaticon.com/icons/png/512/97/97895.png", :class => "img-fluid")%></td>
+            <th>Email</th>
             <td><%= User.find(user).email %>
+            <th>Nombre</th>
+            <td><%= User.find(user).name %>
+
             </tr>
             <% end %>
           </tbody>
@@ -39,7 +43,9 @@
           <tbody>
             <%  @users_task_completed.each do |task_com| %>
             <tr>
+              <th>Email</th>
               <td><%=  task_com.user.email %></td>
+              <th>Nombre</th>
               <td><%=  task_com.user.name %></td>
             </tr>
             <%  end %>
